@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 300px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #1e1e2e;
+        color: #cdd6f4;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: #f5a623;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .label {
+        font-size: 13px;
+      }
+      .hint {
+        font-size: 11px;
+        opacity: 0.5;
+        margin-top: 6px;
+      }
+      .section {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid #313244;
+      }
+      .section-title {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        opacity: 0.6;
+        margin-bottom: 10px;
+      }
+      .row + .row {
+        margin-top: 8px;
+      }
+      .switch {
+        position: relative;
+        width: 44px;
+        height: 24px;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        inset: 0;
+        background: #45475a;
+        border-radius: 24px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .slider::before {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        left: 3px;
+        bottom: 3px;
+        background: #cdd6f4;
+        border-radius: 50%;
+        transition: transform 0.2s;
+      }
+      input:checked + .slider {
+        background: #89b4fa;
+      }
+      input:checked + .slider::before {
+        transform: translateX(20px);
+      }
+      .regex-input {
+        width: 100%;
+        margin-top: 10px;
+        padding: 6px 8px;
+        background: #313244;
+        border: 1px solid #45475a;
+        border-radius: 6px;
+        color: #cdd6f4;
+        font-family: "SF Mono", "Fira Code", monospace;
+        font-size: 12px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .regex-input:focus {
+        border-color: #89b4fa;
+      }
+      .regex-input::placeholder {
+        color: #6c7086;
+      }
+      .regex-error {
+        font-size: 11px;
+        color: #f38ba8;
+        margin-top: 4px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tracé — Options</h1>
+
+    <div class="section-title">Capture filters</div>
+    <div class="row">
+      <span class="label">API calls (XHR / Fetch)</span>
+      <label class="switch">
+        <input type="checkbox" id="filterApi" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="row">
+      <span class="label">Documents (HTML)</span>
+      <label class="switch">
+        <input type="checkbox" id="filterDocuments" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="row">
+      <span class="label">WebSocket (WS/WSS)</span>
+      <label class="switch">
+        <input type="checkbox" id="filterWebSocket" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div>
+      <input
+        type="text"
+        id="filterExcludeRegex"
+        class="regex-input"
+        placeholder="Exclude URL regex, e.g. /analytics|tracking/"
+      />
+      <div id="regexError" class="regex-error">Invalid regex</div>
+    </div>
+    <div class="hint">
+      URLs matching this regex will be excluded from capture
+    </div>
+
+    <div class="section">
+      <div class="section-title">Advanced</div>
+      <div class="row">
+        <span class="label">Smart mode</span>
+        <label class="switch">
+          <input type="checkbox" id="smartToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="hint">
+        Auto-link response values to subsequent requests using bru.setVar /
+        {{variables}}
+      </div>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>

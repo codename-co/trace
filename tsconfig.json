@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "types": ["chrome-types"]
+  },
+  "include": ["public/background.js", "public/options.js"],
+  "exclude": ["node_modules"]
+}

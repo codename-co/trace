@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "trace",
+  "description": "Record API traffic and export it as a ready-to-use OpenCollection. One click on, one click off.",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "chrome-types": "^0.1.327",
+    "monaco-editor": "^0.55.1",
+    "typescript": "^5.8.0"
+  }
+}

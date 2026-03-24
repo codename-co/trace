@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracé results</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      #trace-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        height: 40px;
+        min-height: 40px;
+        background: #1a1a1a;
+        color: #fff;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 13px;
+      }
+      #trace-header .trace-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      #trace-header .trace-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #d97706;
+      }
+      #trace-header button {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        border: none;
+        border-radius: 4px;
+        background: #d97706;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      #trace-header button:hover {
+        background: #b45309;
+      }
+      #trace-header button svg {
+        width: 14px;
+        height: 14px;
+      }
+      #opencollection-container {
+        width: 100%;
+        flex: 1;
+        overflow: hidden;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="https://cdn.opencollection.com/docs.css">
+    <script src="https://cdn.opencollection.com/docs.js"></script> -->
+    <link rel="stylesheet" href="vendor/docs.css" />
+    <script src="vendor/docs.js"></script>
+  </head>
+  <body>
+    <div id="trace-header">
+      <div class="trace-brand">
+        <span class="trace-dot"></span>
+        Tracé
+      </div>
+      <button id="trace-download" title="Download OpenCollection JSON">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+        >
+          <path
+            d="M8 1a.75.75 0 0 1 .75.75v6.69l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 0 1 1.06-1.06l1.72 1.72V1.75A.75.75 0 0 1 8 1ZM2.75 11a.75.75 0 0 1 .75.75v1.5h9v-1.5a.75.75 0 0 1 1.5 0v1.5A1.5 1.5 0 0 1 12.5 14.75h-9A1.5 1.5 0 0 1 2 13.25v-1.5a.75.75 0 0 1 .75-.75Z"
+          />
+        </svg>
+        Download
+      </button>
+    </div>
+    <div id="opencollection-container"></div>
+    <script src="viewer.js"></script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Tracé",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "Record API traffic and export it as a ready-to-use OpenCollection. One click on, one click off.",
   "permissions": [
     "activeTab",
